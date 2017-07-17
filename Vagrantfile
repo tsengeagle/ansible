@@ -3,12 +3,12 @@
 
 Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/trusty64"
+
+  config.ssh.private_key_path = ["~/.ssh/id_rsa","~/.vagrant.d/insecure_private_key"]
+  config.ssh.insert_key = false
   
   config.vm.define "controller" do |controller|
     controller.vm.hostname = "controller"
-
-    controller.ssh.private_key_path = ["~/.ssh/id_rsa","~/.vagrant.d/insecure_private_key"]
-    controller.ssh.insert_key = false
 
     controller.vm.provision "file", source: "~/.ssh/id_rsa.pub", destination: "~/.ssh/authorized_keys"
     controller.vm.provision "shell", inline: <<-EOC
