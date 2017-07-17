@@ -1,31 +1,31 @@
-[lab]
-192.168.100.11
-
 [controller]
-10.2.145.26 ansible_user=root
+rhel-server ansible_host = 10.2.145.26  ansible_user = root
 
 [linux-ap]
-10.2.145.11 ansible_user=root
-10.2.145.12 ansible_user=root
-10.2.145.13 ansible_user=root
-10.2.145.21 ansible_user=root
-10.2.145.22 ansible_user=root
-10.2.145.23 ansible_user=root
-10.2.145.31 ansible_user=root
-10.2.145.32 ansible_user=root
-10.2.145.33 ansible_user=root
-10.2.145.42 ansible_user=root
-10.2.145.43 ansible_user=root
-10.2.145.51 ansible_user=root
-10.2.145.52 ansible_user=root
-10.2.145.53 ansible_user=root
-10.2.145.231 ansible_user=root
-10.2.145.232 ansible_user=root
-10.2.145.233 ansible_user=root
-10.2.145.66 ansible_user=root
+M1V01       ansible_host = 10.2.145.11  ansible_user = root
+M1V02       ansible_host = 10.2.145.12  ansible_user = root
+M1V03       ansible_host = 10.2.145.13  ansible_user = root
+M2V01       ansible_host = 10.2.145.21  ansible_user = root
+M2V02       ansible_host = 10.2.145.22  ansible_user = root
+M2V03       ansible_host = 10.2.145.23  ansible_user = root
+M3V01       ansible_host = 10.2.145.31  ansible_user = root
+M3V02       ansible_host = 10.2.145.32  ansible_user = root
+M3V03       ansible_host = 10.2.145.33  ansible_user = root
+M4V02       ansible_host = 10.2.145.42  ansible_user = root
+M4V03       ansible_host = 10.2.145.43  ansible_user = root
+M5V01       ansible_host = 10.2.145.51  ansible_user = root
+M5V02       ansible_host = 10.2.145.52  ansible_user = root
+M5V03       ansible_host = 10.2.145.53  ansible_user = root
+CHIDHIS     ansible_host = 10.2.145.231 ansible_user = root
+CHIDRPT     ansible_host = 10.2.145.232 ansible_user = root
+CHIDHIS1    ansible_host = 10.2.145.233 ansible_user = root
+M6V06       ansible_host = 10.2.145.66  ansible_user = root
+
 
 [win-ap]
 10.2.145.41
 10.2.145.63
 10.2.145.64
 10.2.145.65
+JSADSVR1 ansible_host = 10.2.145.121
+JSADSVR2 ansible_host = 10.2.145.122
