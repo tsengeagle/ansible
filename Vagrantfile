@@ -29,9 +29,21 @@ Vagrant.configure("2") do |config|
   config.vm.define "node" do |node|
     node.vm.hostname = "node"
 
+    node.vm.provision "file", source: "~/.ssh/id_rsa.pub", destination: "~/.ssh/authorized_keys"
+    node.vm.provision "shell", inline: <<-EOC
+      sudo sed -i -e "\\#PasswordAuthentication yes# s#PasswordAuthentication yes#PasswordAuthentication no#g" /etc/ssh/sshd_config
+      sudo service ssh restart
+    EOC
+
     node.vm.network "private_network", ip:"192.168.100.11"
   end
 
+  config.vm.define "win" do |win|
+    win.vm.box = "opentable/win-2012r2-standard-amd64-nocm"
+    win.vm.hostname = "win"
+
+    win.vm.network "private_network", ip:"192.168.100.12"
+  end
   
   # config.vm.network "forwarded_port", guest: 80, host: 8080
   # config.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "127.0.0.1"
