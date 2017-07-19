@@ -22,7 +22,7 @@ Vagrant.configure("2") do |config|
       sudo apt-get update -y
       sudo apt-get install ansible -y
     EOC
-        
+
     controller.vm.network "private_network", ip:"192.168.100.10"
   end
 
