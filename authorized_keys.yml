@@ -1,0 +1,8 @@
+---
+
+- hosts: linux-ap
+  tasks:
+  - name: copy authorized keys to remote
+    copy:
+      src: /vagrant/authorized_keys
+      dest: ~/.ssh/authorized_keys
