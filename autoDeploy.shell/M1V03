@@ -1,0 +1,19 @@
+
+echo "=================Deploy default"$1"==================="
+
+if [ $1 = '1' ];then
+  /home/jboss/war/jbossDeploy.sh HmoServer $1
+  /home/jboss/war/jbossDeploy.sh MrmServer $1
+elif [ $1 = '2' ];then
+  /home/jboss/war/jbossDeploy.sh AppServer $1
+elif [ $1 = '3' ];then
+  /home/jboss/war/jbossDeploy.sh ObilServer $1
+elif [ $1 = '4' ];then
+  /home/jboss/war/jbossDeploy.sh OnhServer $1
+fi
+
+
+
+
+
+

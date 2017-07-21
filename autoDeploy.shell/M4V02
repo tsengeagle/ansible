@@ -1,0 +1,14 @@
+
+echo "=================Deploy default"$1"==================="
+
+if [ $1 = '1' ];then
+  /home/jboss/war/jbossDeploy.sh JobServer $1
+elif [ $1 = '2' ];then
+  /home/jboss/war/jbossDeploy.sh FileServer $1
+fi
+
+
+
+
+
+
