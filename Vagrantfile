@@ -38,6 +38,7 @@ Vagrant.configure("2") do |config|
       sudo yum update -y
       
     EOC
+
   end
 
 end
