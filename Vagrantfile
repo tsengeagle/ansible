@@ -26,23 +26,18 @@ Vagrant.configure("2") do |config|
     controller.vm.network "private_network", ip:"192.168.100.10"
   end
 
-  config.vm.define "node" do |node|
-    node.vm.hostname = "node"
+  config.vm.define "ap" do |ap|
+    ap.vm.box = "centos/7"
 
-    node.vm.provision "file", source: "~/.ssh/id_rsa.pub", destination: "~/.ssh/authorized_keys"
-    node.vm.provision "shell", inline: <<-EOC
-      sudo sed -i -e "\\#PasswordAuthentication yes# s#PasswordAuthentication yes#PasswordAuthentication no#g" /etc/ssh/sshd_config
-      sudo service ssh restart
-    EOC
-
-    node.vm.network "private_network", ip:"192.168.100.11"
-  end
-
-  config.vm.define "win" do |win|
-    win.vm.box = "opentable/win-2012r2-standard-amd64-nocm"
-    win.vm.hostname = "win"
-
-    win.vm.network "private_network", ip:"192.168.100.12"
-  end
+    ap.vm.hostname = "ap"
+    ap.vm.network "forwarded_port", guest: "80", host: "8080", auto_correct: true
+    ap.vm.network "private_network", ip: "192.168.100.11"
+    ap.vm.provision "file", source: "./authorized_keys", destination: "~/.ssh/authorized_keys"
   
+    ap.vm.provision "shell", inline: <<-EOC
+      sudo yum update -y
+      
+    EOC
+  end
+
 end
