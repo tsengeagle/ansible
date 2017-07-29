@@ -1,0 +1,14 @@
+---
+
+- hosts: all
+  tasks: 
+  - name: install dependencies unzip
+    yum: 
+      name: "{{ item }}"
+      state: present
+    with_items:
+      - unzip
+      - java-1.7.0-openjdk
+      - libselinux-python
+      - libsemanage-python
+  
